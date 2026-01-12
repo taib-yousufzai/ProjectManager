@@ -138,7 +138,7 @@ const Login = () => {
 
         {/* Header */}
         <div className={styles.header}>
-          <img src={logo} alt="Project Manager Logo" className={styles.logo} />
+          <img src="/logo-v3.png" alt="Project Manager Logo" className={styles.logo} />
           <h1 className={styles.title}>Project Manager</h1>
           <p className={styles.subtitle}>Sign in to your account</p>
         </div>
