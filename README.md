@@ -1,16 +1,64 @@
-# React + Vite
+# Project Manager
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A comprehensive full-stack application for managing clients, projects, payments, and financial reports. Built with React, Vite, and Firebase.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 👥 Client & Project Management
+- **Client Dashboard**: Track client details, total revenue, and active project counts.
+- **Project Tracking**: Manage projects with statuses (Active, Completed, On Hold).
+- **Task & Milestone Management**: Break down projects into actionable tasks and track key milestones.
 
-## React Compiler
+### 💰 Financial Management
+- **Payment Tracking**: Record and verify payments with support for multiple currencies and payment methods.
+- **Revenue Rules**: Define automated revenue split rules (e.g., 70/30 splits) for transparent financial distribution.
+- **Ledger System**: Double-entry ledger system for accurate financial record-keeping.
+- **Settlements**: Calculate and process settlements for different parties based on revenue rules.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 📊 Analytics & Reports
+- **Dynamic Reports**: Generate PDF and CSV reports for projects, payments, and revenue.
+- **Visual Analytics**: Interactive charts for revenue trends, project distribution, and growth metrics.
+- **Team Management**: Manage team members and permissions directly from the settings.
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Frontend**: React 19, Vite
+- **Styling**: CSS Modules (Vanilla CSS)
+- **Database & Auth**: Firebase (Firestore, Authentication)
+- **Visualization**: Recharts
+- **Icons**: Lucide React
+- **Routing**: React Router DOM v7
+
+## ⚙️ Setup & Installation
+
+1.  **Clone the repository**
+    ```bash
+    git clone https://github.com/taib-yousufzai/ProjectManager.git
+    cd ProjectManager
+    ```
+
+2.  **Install dependencies**
+    ```bash
+    npm install
+    ```
+
+3.  **Configure Firebase**
+    - Create a project in the [Firebase Console](https://console.firebase.google.com/).
+    - Create a `.env` file in the root directory (see `.env.example`).
+    - Add your Firebase configuration credentials.
+
+4.  **Run locally**
+    ```bash
+    npm run dev
+    ```
+
+## 🔒 Firebase Security Rules
+
+This project uses Firestore security rules to ensure data privacy and integrity.
+- **Users**: Can only list/manage profiles if authenticated.
+- **Projects**: Access restricted to team members and owners.
+- **Financials**: Strict read/write access for authorized personnel.
+
+## 📄 License
+
+This project is private and proprietary.
