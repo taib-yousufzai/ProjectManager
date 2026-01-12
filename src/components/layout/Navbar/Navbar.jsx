@@ -52,6 +52,7 @@ const Navbar = ({ onToggleSidebar, isSidebarOpen }) => {
           </button>
 
           <div className={styles.logo}>
+            <img src="/src/assets/logo.png" alt="ProjectTracker Logo" className={styles.logoImage} />
             <h2>ProjectTracker</h2>
           </div>
         </div>
