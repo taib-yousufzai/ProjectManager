@@ -1,0 +1,416 @@
+.paymentList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Summary Cards */
+.summaryGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.summaryCard {
+  padding: 1.5rem;
+}
+
+.summaryContent h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.summaryValue {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.summaryCount {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+/* Filters */
+.filtersCard {
+  padding: 1.5rem;
+}
+
+.filtersGrid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 2fr auto;
+  gap: 1rem;
+  align-items: end;
+}
+
+.searchGroup {
+  grid-column: 1;
+}
+
+.filterGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.filterLabel {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.filterSelect {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.375rem;
+  background: white;
+  font-size: 0.875rem;
+  color: var(--text-primary);
+}
+
+.filterSelect:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(74, 108, 247, 0.1);
+}
+
+.dateRangeGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.dateInputs {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.dateInput {
+  flex: 1;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.375rem;
+  background: white;
+  font-size: 0.875rem;
+  color: var(--text-primary);
+}
+
+.dateInput:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(74, 108, 247, 0.1);
+}
+
+.filterActions {
+  display: flex;
+  align-items: end;
+}
+
+/* Table */
+.tableCard {
+  padding: 0;
+  overflow: hidden;
+}
+
+.tableHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.tableHeader h3 {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.tableActions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.resultCount {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.tableContainer {
+  overflow-x: auto;
+}
+
+.paymentsTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.paymentsTable th {
+  padding: 1rem 1.5rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  background: var(--background-color);
+  border-bottom: 1px solid var(--border-color);
+  white-space: nowrap;
+}
+
+.sortableHeader {
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+}
+
+.sortableHeader:hover {
+  color: var(--primary-color);
+}
+
+.sortIcon {
+  margin-left: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--primary-color);
+}
+
+.paymentsTable td {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  font-size: 0.875rem;
+  vertical-align: top;
+}
+
+.paymentRow:hover {
+  background: var(--background-color);
+}
+
+.projectCell {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.projectName {
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.clientName {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.descriptionCell {
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.amountCell {
+  font-weight: 600;
+  color: var(--text-primary);
+  text-align: right;
+}
+
+.transactionCell {
+  font-family: monospace;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+/* Status Badges */
+.statusBadge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.statusCompleted {
+  background: rgba(34, 197, 94, 0.1);
+  color: var(--success-color);
+}
+
+.statusPending {
+  background: rgba(245, 158, 11, 0.1);
+  color: var(--warning-color);
+}
+
+.statusFailed {
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--danger-color);
+}
+
+.statusRefunded {
+  background: rgba(107, 114, 128, 0.1);
+  color: var(--text-secondary);
+}
+
+/* Approval Badges */
+.approvalBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.approvalVerified {
+  background: rgba(34, 197, 94, 0.1);
+  color: var(--success-color);
+}
+
+.approvalPartial {
+  background: rgba(245, 158, 11, 0.1);
+  color: var(--warning-color);
+}
+
+.approvalPending {
+  background: rgba(107, 114, 128, 0.1);
+  color: var(--text-secondary);
+}
+
+/* Revenue Badges */
+.revenueBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.revenueProcessed {
+  background: rgba(34, 197, 94, 0.1);
+  color: var(--success-color);
+}
+
+.revenuePending {
+  background: rgba(245, 158, 11, 0.1);
+  color: var(--warning-color);
+}
+
+.revenueNotStarted {
+  background: rgba(107, 114, 128, 0.1);
+  color: var(--text-secondary);
+}
+
+.badgeIcon {
+  font-size: 0.75rem;
+}
+
+/* Actions */
+.actions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.emptyState {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .filtersGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .searchGroup {
+    grid-column: 1;
+  }
+
+  .dateInputs {
+    flex-direction: column;
+  }
+
+  .filterActions {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 768px) {
+  .summaryGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .tableContainer {
+    font-size: 0.75rem;
+  }
+
+  .paymentsTable th,
+  .paymentsTable td {
+    padding: 0.75rem 1rem;
+  }
+
+  .descriptionCell {
+    max-width: 150px;
+  }
+
+  .tableHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .paymentsTable {
+    min-width: 600px; /* Enable horizontal scroll */
+  }
+}
+
+@media (max-width: 480px) {
+  .filtersCard,
+  .summaryCard,
+  .tableCard {
+    margin: 0 -var(--spacing-sm);
+    border-radius: 0;
+  }
+  
+  .paymentsTable th,
+  .paymentsTable td {
+    padding: 0.5rem 0.75rem;
+  }
+  
+  .descriptionCell {
+    max-width: 100px;
+  }
+}
+
+/* Touch-friendly improvements */
+@media (hover: none) and (pointer: coarse) {
+  .sortableHeader {
+    min-height: 48px;
+    padding: 1rem 1.5rem;
+  }
+  
+  .paymentRow {
+    min-height: 60px;
+  }
+  
+  .filterSelect,
+  .dateInput {
+    min-height: 44px;
+    padding: 0.75rem;
+  }
+}

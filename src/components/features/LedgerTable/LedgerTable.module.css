@@ -1,0 +1,315 @@
+.tableContainer {
+  width: 100%;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.tableHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #e5e7eb;
+  background: #f9fafb;
+}
+
+.tableTitle h3 {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.tableActions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.bulkActions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.selectionCount {
+  font-size: 0.875rem;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.tableWrapper {
+  overflow-x: auto;
+}
+
+.ledgerTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.ledgerTable thead {
+  background: #f9fafb;
+}
+
+.ledgerTable th {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: #374151;
+  border-bottom: 1px solid #e5e7eb;
+  white-space: nowrap;
+}
+
+.ledgerTable td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #f3f4f6;
+  vertical-align: middle;
+}
+
+.tableRow {
+  transition: background-color 0.15s ease;
+}
+
+.tableRow:hover {
+  background: #f9fafb;
+}
+
+.sortableColumn {
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.15s ease;
+}
+
+.sortableColumn:hover {
+  background: #f3f4f6;
+}
+
+.sortIcon {
+  margin-left: 0.25rem;
+  font-size: 0.75rem;
+  opacity: 0.6;
+}
+
+.checkboxColumn {
+  width: 40px;
+  text-align: center;
+}
+
+.checkboxColumn input[type="checkbox"] {
+  cursor: pointer;
+}
+
+.dateCell {
+  min-width: 100px;
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+}
+
+.amountCell {
+  text-align: right;
+  font-weight: 600;
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+  min-width: 120px;
+}
+
+.creditAmount {
+  color: #059669;
+}
+
+.debitAmount {
+  color: #dc2626;
+}
+
+.projectCell,
+.paymentCell {
+  max-width: 120px;
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+  font-size: 0.8125rem;
+}
+
+.projectId,
+.paymentId {
+  color: #6b7280;
+  cursor: help;
+}
+
+.noProject,
+.noPayment {
+  color: #9ca3af;
+  font-style: italic;
+}
+
+.remarksCell {
+  max-width: 200px;
+  color: #6b7280;
+}
+
+.actionsCell {
+  text-align: right;
+  min-width: 120px;
+}
+
+.settlementInfo {
+  font-size: 0.8125rem;
+  color: #059669;
+  font-weight: 500;
+  cursor: help;
+}
+
+/* Badge Styles */
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.375rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+/* Status Badges */
+.pendingBadge {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.clearedBadge {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+/* Type Badges */
+.creditBadge {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.debitBadge {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+/* Party Badges */
+.adminBadge {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.teamBadge {
+  background: #e0e7ff;
+  color: #5b21b6;
+}
+
+.vendorBadge {
+  background: #fce7f3;
+  color: #be185d;
+}
+
+.defaultBadge {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+/* Loading State */
+.loadingContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem;
+  color: #6b7280;
+}
+
+.loadingSpinner {
+  font-size: 1rem;
+}
+
+/* Empty State */
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  text-align: center;
+  color: #6b7280;
+}
+
+.emptyStateIcon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  opacity: 0.5;
+}
+
+.emptyState h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.emptyState p {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .tableHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .tableActions {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .bulkActions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .ledgerTable {
+    font-size: 0.8125rem;
+  }
+
+  .ledgerTable th,
+  .ledgerTable td {
+    padding: 0.5rem 0.75rem;
+  }
+
+  .amountCell,
+  .projectCell,
+  .paymentCell,
+  .remarksCell {
+    max-width: 100px;
+  }
+
+  .actionsCell {
+    min-width: 100px;
+  }
+}
+
+@media (max-width: 640px) {
+  .tableWrapper {
+    overflow-x: scroll;
+  }
+
+  .ledgerTable {
+    min-width: 800px;
+  }
+
+  .tableHeader {
+    padding: 1rem;
+  }
+
+  .ledgerTable th,
+  .ledgerTable td {
+    padding: 0.5rem;
+  }
+}

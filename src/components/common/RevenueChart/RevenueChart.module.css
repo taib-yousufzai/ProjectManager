@@ -1,0 +1,100 @@
+.chartContainer {
+  background: var(--card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  padding: var(--spacing-lg);
+  transition: box-shadow 0.2s ease;
+}
+
+.chartContainer:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.chartHeader {
+  margin-bottom: var(--spacing-lg);
+}
+
+.chartTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 var(--spacing-xs) 0;
+}
+
+.chartSubtitle {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.chartWrapper {
+  width: 100%;
+  min-height: 300px;
+}
+
+.tooltip {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-sm);
+  box-shadow: var(--shadow-md);
+}
+
+.tooltipLabel {
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 var(--spacing-xs) 0;
+  font-size: 0.875rem;
+}
+
+.tooltipValue {
+  margin: 0;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .chartContainer {
+    padding: var(--spacing-md);
+    margin: 0 -var(--spacing-sm);
+    border-radius: var(--radius-md);
+  }
+  
+  .chartWrapper {
+    min-height: 250px;
+  }
+  
+  .chartTitle {
+    font-size: 1rem;
+  }
+  
+  .chartSubtitle {
+    font-size: 0.75rem;
+  }
+  
+  .chartHeader {
+    margin-bottom: var(--spacing-md);
+  }
+}
+
+@media (max-width: 480px) {
+  .chartContainer {
+    padding: var(--spacing-sm);
+    margin: 0 -var(--spacing-xs);
+  }
+  
+  .chartWrapper {
+    min-height: 200px;
+  }
+  
+  .tooltip {
+    padding: var(--spacing-xs);
+    font-size: 0.75rem;
+  }
+  
+  .tooltipLabel,
+  .tooltipValue {
+    font-size: 0.75rem;
+  }
+}

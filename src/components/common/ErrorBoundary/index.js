@@ -1,0 +1,1 @@
+export { default, withErrorBoundary, ErrorFallback } from './ErrorBoundary';

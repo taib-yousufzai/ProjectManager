@@ -1,0 +1,298 @@
+.revenuePieChart {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.revenuePieChart.small {
+  max-width: 300px;
+}
+
+.revenuePieChart.medium {
+  max-width: 500px;
+}
+
+.revenuePieChart.large {
+  max-width: 700px;
+}
+
+.chartCard {
+  position: relative;
+}
+
+.chartContainer {
+  position: relative;
+  width: 100%;
+}
+
+.centerLabel {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.totalAmount {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 0.25rem;
+}
+
+.totalLabel {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}
+
+.breakdownCard {
+  flex: 1;
+}
+
+.breakdownList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.breakdownItem {
+  padding: 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: var(--color-background);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.breakdownItem:hover,
+.breakdownItem.active {
+  border-color: var(--color-primary);
+  background: var(--color-primary-light);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.breakdownHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.breakdownIndicator {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.colorDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.partyName {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.breakdownPercentage {
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  font-size: 0.875rem;
+}
+
+.breakdownAmount {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-success);
+  margin-left: 1.75rem;
+}
+
+.ruleInfo {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ruleLabel {
+  font-weight: 500;
+  color: var(--color-text-secondary);
+}
+
+.ruleName {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+/* Tooltip Styles */
+.tooltip {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 0.75rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  min-width: 150px;
+}
+
+.tooltipHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.tooltipColor {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.tooltipName {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.tooltipContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.tooltipRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.875rem;
+}
+
+.tooltipValue {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+/* Empty State */
+.emptyChart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+}
+
+.emptyState {
+  text-align: center;
+  color: var(--color-text-secondary);
+}
+
+.emptyIcon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  opacity: 0.5;
+}
+
+.emptyState h4 {
+  margin-bottom: 0.5rem;
+  color: var(--color-text);
+}
+
+.emptyState p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .revenuePieChart {
+    flex-direction: column;
+  }
+  
+  .revenuePieChart.small,
+  .revenuePieChart.medium,
+  .revenuePieChart.large {
+    max-width: 100%;
+  }
+  
+  .totalAmount {
+    font-size: 1.25rem;
+  }
+  
+  .breakdownItem {
+    padding: 0.75rem;
+  }
+  
+  .breakdownHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+  
+  .breakdownAmount {
+    margin-left: 0;
+    margin-top: 0.25rem;
+  }
+  
+  .ruleInfo {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .centerLabel {
+    display: none;
+  }
+  
+  .breakdownIndicator {
+    gap: 0.5rem;
+  }
+  
+  .tooltip {
+    min-width: 120px;
+    padding: 0.5rem;
+  }
+  
+  .tooltipRow {
+    font-size: 0.8125rem;
+  }
+}
+
+/* Animation for chart interactions */
+.breakdownItem {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .colorDot {
+    border: 2px solid var(--color-text);
+  }
+  
+  .breakdownItem {
+    border-width: 2px;
+  }
+  
+  .tooltip {
+    border-width: 2px;
+  }
+}

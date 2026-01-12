@@ -1,0 +1,244 @@
+.revenueBreakdown {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.overviewGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.totalCard {
+  grid-column: span 2;
+}
+
+.totalAmount {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+}
+
+.totalSubtext {
+  color: var(--color-text-secondary);
+  font-size: 0.875rem;
+}
+
+.partyCard {
+  text-align: center;
+}
+
+.partyAmount {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-success);
+}
+
+.emptyState {
+  text-align: center;
+  padding: 2rem;
+  color: var(--color-text-secondary);
+}
+
+.emptyState h4 {
+  margin-bottom: 0.5rem;
+  color: var(--color-text-primary);
+}
+
+.paymentsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.paymentItem {
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.paymentItem:hover {
+  border-color: var(--color-primary);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.paymentItem.selected {
+  border-color: var(--color-primary);
+  background-color: var(--color-primary-light);
+}
+
+.paymentHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.paymentInfo {
+  flex: 1;
+}
+
+.paymentDescription {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.paymentMeta {
+  color: var(--color-text-secondary);
+  font-size: 0.875rem;
+}
+
+.paymentStatus {
+  flex-shrink: 0;
+}
+
+.statusBadge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.statusBadge.processed {
+  background-color: var(--color-success-light);
+  color: var(--color-success);
+}
+
+.statusBadge.pending {
+  background-color: var(--color-warning-light);
+  color: var(--color-warning);
+}
+
+.statusBadge.error {
+  background-color: var(--color-danger-light);
+  color: var(--color-danger);
+}
+
+.statusBadge.loading {
+  background-color: var(--color-gray-light);
+  color: var(--color-text-secondary);
+}
+
+.paymentDetails {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.ruleInfo {
+  margin-bottom: 1rem;
+  color: var(--color-text-secondary);
+}
+
+.chartSection {
+  margin: 1rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.splitBreakdown {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.splitItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  background-color: var(--color-background-secondary);
+  border-radius: 4px;
+}
+
+.splitLabel {
+  font-weight: 500;
+}
+
+.splitAmount {
+  font-weight: 600;
+  color: var(--color-success);
+}
+
+.ledgerEntries {
+  margin-top: 1rem;
+}
+
+.entriesHeader {
+  margin-bottom: 0.75rem;
+  color: var(--color-text-secondary);
+}
+
+.entryItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  background-color: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+}
+
+.entryParty {
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.entryAmount {
+  font-weight: 600;
+}
+
+.entryStatus {
+  padding: 0.25rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.entryStatus.pending {
+  background-color: var(--color-warning-light);
+  color: var(--color-warning);
+}
+
+.entryStatus.cleared {
+  background-color: var(--color-success-light);
+  color: var(--color-success);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .overviewGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .totalCard {
+    grid-column: span 1;
+  }
+  
+  .paymentHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .splitItem {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+  
+  .entryItem {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+}

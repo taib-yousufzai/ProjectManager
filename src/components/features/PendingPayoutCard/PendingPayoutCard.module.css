@@ -1,0 +1,87 @@
+.payoutCard {
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.payoutCard.clickable {
+  cursor: pointer;
+}
+
+.payoutCard.clickable:hover {
+  transform: translateY(-2px);
+}
+
+.payoutCard.hovered .actionHint {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.actionHint {
+  position: absolute;
+  bottom: 8px;
+  right: 12px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: all 0.2s ease;
+  pointer-events: none;
+}
+
+.hintText {
+  font-size: 11px;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.hintIcon {
+  font-size: 12px;
+  color: var(--primary);
+  font-weight: bold;
+}
+
+.errorDetails {
+  position: absolute;
+  bottom: 8px;
+  left: 12px;
+  right: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 8px;
+  background: var(--error-light);
+  border: 1px solid var(--error);
+  border-radius: 6px;
+  font-size: 11px;
+}
+
+.errorIcon {
+  font-size: 12px;
+}
+
+.errorText {
+  color: var(--error);
+  font-weight: 500;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .actionHint {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .hintText {
+    font-size: 10px;
+  }
+  
+  .errorDetails {
+    position: static;
+    margin-top: 8px;
+  }
+}

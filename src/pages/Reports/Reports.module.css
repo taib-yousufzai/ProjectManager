@@ -1,0 +1,625 @@
+.reportsContainer {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.tooltip {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.75rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.tooltipLabel {
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.tooltipValue {
+  font-size: 0.875rem;
+  margin: 0.125rem 0;
+}
+
+.header {
+  margin-bottom: 2rem;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+.filtersSection {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.filtersTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.filtersGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  align-items: end;
+}
+
+.filterGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.filterLabel {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.filterInput {
+  padding: 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 0.875rem;
+  background: var(--background);
+  color: var(--text-primary);
+}
+
+.filterInput:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(74, 108, 247, 0.1);
+}
+
+.applyButton {
+  padding: 0.75rem 1.5rem;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.applyButton:hover {
+  background: #3b5ae0;
+}
+
+.chartsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.chartCard {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.chartHeader {
+  display: flex;
+  justify-content: between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.chartTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.chartSubtitle {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  margin: 0.25rem 0 0 0;
+}
+
+.chartTypeSelector {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.chartTypeButton {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border);
+  background: var(--background);
+  color: var(--text-secondary);
+  border-radius: 6px;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.chartTypeButton:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.chartTypeButton.active {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+.chartWrapper {
+  height: 400px;
+  width: 100%;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.statCard {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.statValue {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.statLabel {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.statChange {
+  font-size: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.statChange.positive {
+  color: var(--success);
+}
+
+.statChange.negative {
+  color: var(--danger);
+}
+
+.exportSection {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.exportTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.exportButtons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.exportButton {
+  padding: 0.75rem 1.5rem;
+  border: 1px solid var(--border);
+  background: var(--background);
+  color: var(--text-primary);
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.exportButton:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.noDataMessage {
+  text-align: center;
+  color: var(--text-secondary);
+  font-style: italic;
+  padding: 2rem;
+}
+
+/* Insights Section */
+.insightsSection {
+  margin-bottom: 2rem;
+}
+
+.insightsTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+}
+
+.insightsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.insightCard {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--border);
+}
+
+.insightHeader {
+  margin-bottom: 1rem;
+}
+
+.insightCardTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.insightValue {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.insightValue.positive {
+  color: var(--success);
+}
+
+.insightValue.negative {
+  color: var(--danger);
+}
+
+.topClientsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.topClientItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem;
+  background: var(--background);
+  border-radius: 6px;
+  border: 1px solid var(--border);
+}
+
+.clientRank {
+  font-weight: 600;
+  color: var(--primary);
+  min-width: 2rem;
+}
+
+.clientName {
+  flex: 1;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.clientRevenue {
+  font-weight: 600;
+  color: var(--success);
+}
+
+/* Profit Margin Analysis Styles */
+.profitSummaryGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+  padding: 20px;
+  background: var(--background);
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+.profitCard {
+  text-align: center;
+  padding: 16px;
+  background: var(--card-bg);
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+.profitValue {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.profitValue.positive {
+  color: var(--success);
+}
+
+.profitValue.warning {
+  color: #F59E0B;
+}
+
+.profitValue.negative {
+  color: var(--danger);
+}
+
+.profitLabel {
+  font-size: 12px;
+  color: var(--text-secondary);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.performanceSection {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.performanceCard {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.performanceTitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 20px 0;
+}
+
+.performanceList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.performanceItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: var(--background);
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  transition: background-color 0.2s ease;
+}
+
+.performanceItem:hover {
+  background: var(--background);
+  border-color: var(--primary);
+}
+
+.performanceRank {
+  font-weight: bold;
+  color: var(--primary);
+  min-width: 24px;
+  text-align: center;
+}
+
+.performanceDetails {
+  flex: 1;
+}
+
+.performanceName {
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.performanceMetrics {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.performanceMargin {
+  font-weight: 700;
+  font-size: 16px;
+  min-width: 60px;
+  text-align: right;
+}
+
+.performanceMargin.positive {
+  color: var(--success);
+}
+
+.performanceMargin.warning {
+  color: #F59E0B;
+}
+
+.performanceMargin.negative {
+  color: var(--danger);
+}
+
+@media (max-width: 768px) {
+  .reportsContainer {
+    padding: 1rem;
+  }
+  
+  .filtersGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .chartHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .chartTypeSelector {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .exportButtons {
+    flex-direction: column;
+  }
+  
+  .exportButton {
+    justify-content: center;
+  }
+  
+  .insightsGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .topClientItem {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .clientRank {
+    min-width: auto;
+  }
+  
+  .performanceSection {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .profitSummaryGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    padding: 16px;
+  }
+  
+  .profitCard {
+    padding: 12px;
+  }
+  
+  .profitValue {
+    font-size: 20px;
+  }
+}
+
+/* Print-friendly styles */
+@media print {
+  .reportsContainer {
+    padding: 0;
+    max-width: none;
+    margin: 0;
+  }
+  
+  .filtersSection,
+  .exportSection {
+    display: none;
+  }
+  
+  .chartTypeSelector {
+    display: none;
+  }
+  
+  .chartCard {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    margin-bottom: 1rem;
+    box-shadow: none;
+    border: 1px solid #ddd;
+  }
+  
+  .statsGrid {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  
+  .statCard {
+    box-shadow: none;
+    border: 1px solid #ddd;
+  }
+  
+  .insightsSection {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  
+  .insightCard {
+    box-shadow: none;
+    border: 1px solid #ddd;
+  }
+  
+  .header {
+    text-align: center;
+    border-bottom: 2px solid #4A6CF7;
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .title {
+    color: #000 !important;
+  }
+  
+  .subtitle {
+    color: #666 !important;
+  }
+  
+  /* Ensure charts print properly */
+  .chartWrapper {
+    height: 300px !important;
+  }
+  
+  /* Add page breaks between major sections */
+  .chartsGrid > .chartCard:nth-child(2) {
+    page-break-before: always;
+  }
+  
+  /* Print page info */
+  @page {
+    margin: 1in;
+    size: letter;
+  }
+  
+  /* Add print header */
+  .reportsContainer::before {
+    content: "Project & Payments Report - Generated on " attr(data-print-date);
+    display: block;
+    text-align: center;
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 0.5rem;
+  }
+}

@@ -1,0 +1,169 @@
+/* Card Base Styles */
+.card {
+  background: var(--card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-light);
+  transition: all 0.2s ease;
+  width: 100%;
+  text-align: left;
+  font-family: var(--font-family);
+}
+
+.card--shadow {
+  box-shadow: var(--shadow-sm);
+}
+
+.card--shadow:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.card--clickable {
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+.card--clickable:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.card--clickable:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.card--clickable:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-md);
+}
+
+/* Padding Variations */
+.card--padding-small {
+  padding: var(--spacing-sm);
+}
+
+.card--padding-medium {
+  padding: var(--spacing-lg);
+}
+
+.card--padding-large {
+  padding: var(--spacing-xl);
+}
+
+/* Card Header */
+.cardHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+}
+
+.cardHeaderContent {
+  flex: 1;
+  min-width: 0; /* Allows text truncation */
+}
+
+.cardTitle {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 var(--spacing-xs) 0;
+  line-height: 1.25;
+}
+
+.cardSubtitle {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.cardActions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  flex-shrink: 0;
+}
+
+/* Card Content */
+.cardContent {
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+/* When card has both header and content */
+.cardHeader + .cardContent {
+  margin-top: 0;
+}
+
+/* Special case: no header, just content */
+.card:not(:has(.cardHeader)) .cardContent {
+  margin-top: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .cardHeader {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--spacing-sm);
+  }
+  
+  .cardActions {
+    justify-content: flex-end;
+  }
+  
+  .card--padding-large {
+    padding: var(--spacing-lg);
+  }
+  
+  .card--padding-medium {
+    padding: var(--spacing-md);
+  }
+}
+
+/* Utility classes for common card patterns */
+.card--stat {
+  text-align: center;
+}
+
+.card--stat .cardTitle {
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.card--stat .cardSubtitle {
+  font-size: var(--font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+}
+
+/* Loading state */
+.card--loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.card--loading::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}

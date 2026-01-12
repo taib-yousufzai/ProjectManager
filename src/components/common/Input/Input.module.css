@@ -1,0 +1,198 @@
+/* Input Container */
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  width: 100%;
+}
+
+.inputContainer--disabled {
+  opacity: 0.6;
+}
+
+/* Label */
+.label {
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.required {
+  color: var(--danger);
+  font-weight: 600;
+}
+
+/* Input Wrapper */
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Input Base Styles */
+.input {
+  width: 100%;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  font-family: var(--font-family);
+  color: var(--text-primary);
+  background-color: var(--card);
+  transition: all 0.2s ease;
+  outline: none;
+  min-height: 2.5rem;
+}
+
+.input::placeholder {
+  color: var(--text-muted);
+}
+
+/* Input States */
+.input:hover:not(:disabled) {
+  border-color: var(--text-muted);
+}
+
+.input:focus,
+.input--focused {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(74, 108, 247, 0.1);
+}
+
+.input--error {
+  border-color: var(--danger);
+}
+
+.input--error:focus {
+  border-color: var(--danger);
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.input--disabled {
+  background-color: var(--border-light);
+  cursor: not-allowed;
+}
+
+.input--disabled::placeholder {
+  color: var(--text-muted);
+}
+
+/* Input Types */
+.input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.input[type="number"]::-webkit-outer-spin-button,
+.input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.input[type="date"] {
+  position: relative;
+}
+
+.input[type="date"]::-webkit-calendar-picker-indicator {
+  position: absolute;
+  right: var(--spacing-sm);
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.input[type="password"] {
+  font-family: monospace;
+  letter-spacing: 0.1em;
+}
+
+/* Error Message */
+.errorMessage {
+  font-size: var(--font-size-xs);
+  color: var(--danger);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  margin-top: calc(var(--spacing-xs) / 2);
+}
+
+.errorMessage::before {
+  content: '⚠';
+  font-size: var(--font-size-sm);
+}
+
+/* Helper Text */
+.helperText {
+  font-size: var(--font-size-xs);
+  color: var(--text-secondary);
+  margin-top: calc(var(--spacing-xs) / 2);
+}
+
+/* Container Error State */
+.inputContainer--error .label {
+  color: var(--danger);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .input {
+    padding: calc(var(--spacing-sm) - 1px) var(--spacing-sm);
+    font-size: var(--font-size-base);
+    min-height: 2.75rem;
+  }
+  
+  .label {
+    font-size: var(--font-size-base);
+  }
+}
+
+/* Touch-friendly improvements */
+@media (hover: none) and (pointer: coarse) {
+  .input {
+    min-height: 44px;
+    padding: var(--spacing-md);
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+  
+  .input[type="date"],
+  .input[type="time"],
+  .input[type="datetime-local"] {
+    min-height: 48px;
+  }
+}
+
+@media (max-width: 480px) {
+  .input {
+    min-height: 48px;
+    padding: var(--spacing-md) var(--spacing-sm);
+  }
+  
+  .inputContainer {
+    gap: var(--spacing-sm);
+  }
+}
+
+/* Focus-visible for better accessibility */
+.input:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .input {
+    border-width: 2px;
+  }
+  
+  .input:focus {
+    border-width: 3px;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .input {
+    transition: none;
+  }
+}

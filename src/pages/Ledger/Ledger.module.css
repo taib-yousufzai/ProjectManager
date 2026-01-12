@@ -1,0 +1,593 @@
+/* Ledger Page Styles */
+.ledgerPage {
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Header Section */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  gap: 1rem;
+}
+
+.headerContent {
+  flex: 1;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 0.5rem 0;
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.headerActions {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+/* Error Message */
+.errorMessage {
+  background: var(--error-light);
+  border: 1px solid var(--error);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.errorMessage p {
+  color: var(--error-dark);
+  margin: 0;
+}
+
+/* Balance Section */
+.balanceSection {
+  margin-bottom: 2rem;
+}
+
+.sectionTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 1rem 0;
+}
+
+.balanceGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.balanceCard {
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  transition: box-shadow 0.2s ease;
+}
+
+.balanceCard:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Controls Section */
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding: 1.5rem;
+  background: var(--background-secondary);
+  border-radius: 8px;
+  border: 1px solid var(--border-light);
+}
+
+.searchSection {
+  display: flex;
+  gap: 1rem;
+}
+
+.searchInput {
+  flex: 1;
+  max-width: 400px;
+}
+
+.filterSection {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.filterSelect {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--background-primary);
+  color: var(--text-primary);
+  font-size: 0.875rem;
+  min-width: 120px;
+}
+
+.filterSelect:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px var(--primary-light);
+}
+
+.clearFiltersBtn {
+  margin-left: auto;
+}
+
+/* Bulk Actions */
+.bulkActions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: var(--primary-light);
+  border: 1px solid var(--primary);
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.selectionCount {
+  font-weight: 500;
+  color: var(--primary-dark);
+}
+
+.bulkActionButtons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* Table Card */
+.tableCard {
+  overflow: hidden;
+}
+
+.tableHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.tableHeader h3 {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.tableActions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* Loading Container */
+.loadingContainer {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Empty State */
+.emptyState {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  color: var(--text-secondary);
+}
+
+.emptyStateIcon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.emptyState h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 0.5rem 0;
+}
+
+.emptyState p {
+  margin: 0 0 1.5rem 0;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Table Container */
+.tableContainer {
+  overflow-x: auto;
+}
+
+.ledgerTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.ledgerTable th {
+  background: var(--background-secondary);
+  padding: 0.75rem;
+  text-align: left;
+  font-weight: 600;
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--border-light);
+  white-space: nowrap;
+}
+
+.ledgerTable td {
+  padding: 0.75rem;
+  border-bottom: 1px solid var(--border-light);
+  vertical-align: middle;
+}
+
+.tableRow:hover {
+  background: var(--background-secondary);
+}
+
+.checkboxColumn {
+  width: 40px;
+  text-align: center;
+}
+
+/* Badge Styles */
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+/* Status Badges */
+.pendingBadge {
+  background: var(--warning-light);
+  color: var(--warning-dark);
+  border: 1px solid var(--warning);
+}
+
+.clearedBadge {
+  background: var(--success-light);
+  color: var(--success-dark);
+  border: 1px solid var(--success);
+}
+
+/* Type Badges */
+.creditBadge {
+  background: var(--success-light);
+  color: var(--success-dark);
+  border: 1px solid var(--success);
+}
+
+.debitBadge {
+  background: var(--error-light);
+  color: var(--error-dark);
+  border: 1px solid var(--error);
+}
+
+/* Party Badges */
+.adminBadge {
+  background: var(--primary-light);
+  color: var(--primary-dark);
+  border: 1px solid var(--primary);
+}
+
+.teamBadge {
+  background: var(--info-light);
+  color: var(--info-dark);
+  border: 1px solid var(--info);
+}
+
+.vendorBadge {
+  background: var(--warning-light);
+  color: var(--warning-dark);
+  border: 1px solid var(--warning);
+}
+
+.defaultBadge {
+  background: var(--background-secondary);
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+}
+
+/* Amount Styling */
+.amountCell {
+  font-weight: 600;
+  text-align: right;
+}
+
+.creditAmount {
+  color: var(--success-dark);
+}
+
+.debitAmount {
+  color: var(--error-dark);
+}
+
+/* Cell Specific Styles */
+.projectCell,
+.paymentCell {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 0.8rem;
+}
+
+.projectId,
+.paymentId {
+  color: var(--text-primary);
+  background: var(--background-secondary);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.noProject,
+.noPayment {
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+.remarksCell {
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .ledgerPage {
+    padding: 1.5rem;
+  }
+  
+  .balanceGrid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .ledgerPage {
+    padding: 1rem;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+
+  .headerActions {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .headerActions button {
+    /* Better touch targets */
+    min-height: 44px;
+    padding: 0.75rem 1rem;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .controls {
+    padding: 1rem;
+  }
+
+  .filterSection {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+
+  .filterSelect {
+    min-width: auto;
+    /* Better touch targets */
+    min-height: 44px;
+    padding: 0.75rem;
+    font-size: 1rem;
+  }
+
+  .clearFiltersBtn {
+    margin-left: 0;
+    align-self: flex-start;
+    min-height: 44px;
+  }
+
+  .bulkActions {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch;
+  }
+
+  .bulkActionButtons {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .bulkActionButtons button {
+    min-height: 44px;
+    flex: 1;
+    min-width: 120px;
+  }
+
+  .tableHeader {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch;
+  }
+
+  .tableActions {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .tableActions button {
+    min-height: 44px;
+    flex: 1;
+    min-width: 100px;
+  }
+
+  .balanceGrid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Make table horizontally scrollable on mobile */
+  .tableContainer {
+    margin: 0 -1rem;
+    padding: 0 1rem;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .ledgerTable {
+    min-width: 800px;
+  }
+
+  /* Mobile-specific navigation breadcrumbs */
+  .mobileBreadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    background: var(--background-secondary);
+    border-radius: 8px;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+  }
+
+  .mobileBreadcrumb a {
+    color: var(--primary);
+    text-decoration: none;
+    touch-action: manipulation;
+    min-height: 32px;
+    display: flex;
+    align-items: center;
+  }
+
+  .mobileBreadcrumb a:hover {
+    text-decoration: underline;
+  }
+}
+
+@media (max-width: 480px) {
+  .ledgerPage {
+    padding: 0.5rem;
+  }
+
+  .controls {
+    padding: 0.75rem;
+  }
+
+  .tableHeader {
+    padding: 1rem;
+  }
+
+  .emptyState {
+    padding: 2rem 1rem;
+  }
+
+  .emptyStateIcon {
+    font-size: 2rem;
+  }
+
+  /* Stack action buttons vertically on very small screens */
+  .headerActions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .headerActions button {
+    width: 100%;
+    min-height: 48px;
+  }
+
+  .bulkActionButtons {
+    flex-direction: column;
+  }
+
+  .tableActions {
+    flex-direction: column;
+  }
+
+  /* Improve search input on small screens */
+  .searchInput input {
+    font-size: 16px; /* Prevents zoom on iOS */
+    min-height: 44px;
+  }
+}
+
+/* Touch-specific optimizations */
+@media (hover: none) and (pointer: coarse) {
+  /* Remove hover effects on touch devices */
+  .balanceCard:hover {
+    box-shadow: none;
+  }
+
+  .tableRow:hover {
+    background: transparent;
+  }
+
+  /* Add active states for touch feedback */
+  .balanceCard:active {
+    transform: scale(0.98);
+    transition: transform 0.1s ease;
+  }
+
+  button:active {
+    transform: scale(0.95);
+    transition: transform 0.1s ease;
+  }
+
+  /* Larger touch targets for checkboxes */
+  .checkboxColumn {
+    width: 48px;
+  }
+
+  .checkboxColumn input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin: 12px;
+  }
+}
+
+/* Swipe gesture support for mobile table navigation */
+@media (max-width: 768px) {
+  .tableContainer {
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+  }
+
+  .ledgerTable th:first-child,
+  .ledgerTable td:first-child {
+    position: sticky;
+    left: 0;
+    background: var(--background-primary);
+    z-index: 1;
+    box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .ledgerTable th:first-child {
+    background: var(--background-secondary);
+  }
+}

@@ -1,0 +1,427 @@
+/* Revenue Rule Form Styles */
+.revenueRuleForm {
+  width: 100%;
+  max-width: 600px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.sectionTitle {
+  color: var(--text-primary);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  margin: 0;
+  padding-bottom: var(--spacing-sm);
+  border-bottom: 2px solid var(--color-border-light);
+}
+
+.formField {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+/* Percentage Grid Layout */
+.percentageGrid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+}
+
+/* Percentage Total Indicator */
+.percentageTotal {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius-md);
+  border: 2px solid var(--color-border);
+  background-color: var(--color-background-secondary);
+  margin-top: var(--spacing-md);
+  transition: all 0.2s ease;
+}
+
+.percentageTotal--valid {
+  border-color: var(--color-success);
+  background-color: var(--color-success-light);
+}
+
+.percentageTotal--under {
+  border-color: var(--color-warning);
+  background-color: var(--color-warning-light);
+}
+
+.percentageTotal--over {
+  border-color: var(--color-error);
+  background-color: var(--color-error-light);
+}
+
+.percentageTotalLabel {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+}
+
+.percentageTotalRemaining {
+  font-size: var(--font-size-md);
+  color: var(--text-secondary);
+}
+
+.percentageTotal--valid .percentageTotalLabel,
+.percentageTotal--valid .percentageTotalRemaining {
+  color: var(--color-success-dark);
+}
+
+.percentageTotal--under .percentageTotalLabel,
+.percentageTotal--under .percentageTotalRemaining {
+  color: var(--color-warning-dark);
+}
+
+.percentageTotal--over .percentageTotalLabel,
+.percentageTotal--over .percentageTotalRemaining {
+  color: var(--color-error-dark);
+}
+
+.percentageTotalError {
+  color: var(--color-error-dark);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  margin-top: var(--spacing-xs);
+}
+
+/* Historical Data Warning */
+.warningSection {
+  display: flex;
+  gap: var(--spacing-md);
+  padding: var(--spacing-lg);
+  background-color: var(--color-warning-light);
+  border: 2px solid var(--color-warning);
+  border-radius: var(--border-radius-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+.warningIcon {
+  font-size: var(--font-size-xl);
+  flex-shrink: 0;
+}
+
+.warningContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.warningTitle {
+  color: var(--color-warning-dark);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
+  margin: 0;
+}
+
+.warningText {
+  color: var(--color-warning-dark);
+  font-size: var(--font-size-sm);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.warningActions {
+  display: flex;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-sm);
+}
+
+/* Management Section */
+.managementSection {
+  margin-top: var(--spacing-xl);
+  padding-top: var(--spacing-lg);
+  border-top: 1px solid var(--color-border-light);
+}
+
+.managementTitle {
+  color: var(--text-primary);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
+  margin: 0 0 var(--spacing-md) 0;
+}
+
+.managementGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-md);
+}
+
+.managementItem {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-md);
+  background-color: var(--color-background-secondary);
+  border-radius: var(--border-radius-md);
+  border: 1px solid var(--color-border);
+}
+
+.managementLabel {
+  color: var(--text-secondary);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.managementValue {
+  color: var(--text-primary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+}
+
+.status--active {
+  color: var(--color-success-dark);
+}
+
+.status--inactive {
+  color: var(--color-neutral-dark);
+}
+.checkboxGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.checkboxLabel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  cursor: pointer;
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius-md);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-background);
+  transition: all 0.2s ease;
+}
+
+.checkboxLabel:hover {
+  border-color: var(--color-primary);
+  background-color: var(--color-background-secondary);
+}
+
+.checkboxLabel:has(.checkbox:checked) {
+  border-color: var(--color-primary);
+  background-color: var(--color-primary-light);
+}
+
+.checkbox {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  cursor: pointer;
+  accent-color: var(--color-primary);
+}
+
+.checkboxText {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.checkboxText::before {
+  content: '';
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--color-border);
+  border-radius: var(--border-radius-sm);
+  background-color: var(--color-background);
+  display: inline-block;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.checkbox:checked + .checkboxText::before {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.checkbox:checked + .checkboxText::after {
+  content: '✓';
+  position: absolute;
+  left: var(--spacing-md);
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  line-height: 1;
+}
+
+.checkboxHelper {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  margin-left: calc(18px + var(--spacing-sm));
+  line-height: 1.4;
+}
+
+/* Form Actions */
+.formActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--spacing-md);
+  padding-top: var(--spacing-lg);
+  border-top: 1px solid var(--color-border-light);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .percentageGrid {
+    gap: var(--spacing-lg);
+  }
+  
+  .formActions {
+    flex-direction: column-reverse;
+    gap: var(--spacing-sm);
+  }
+  
+  .formActions button {
+    width: 100%;
+    /* Larger touch targets for mobile */
+    min-height: 48px;
+    font-size: 1rem;
+  }
+
+  /* Better touch targets for checkboxes */
+  .checkboxLabel {
+    min-height: 48px;
+    padding: var(--spacing-md);
+    touch-action: manipulation;
+  }
+
+  .checkbox {
+    width: 20px;
+    height: 20px;
+  }
+
+  .checkboxText::before {
+    width: 20px;
+    height: 20px;
+  }
+
+  /* Improved scrolling */
+  .form {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+@media (max-width: 480px) {
+  .revenueRuleForm {
+    max-width: 100%;
+  }
+  
+  .form {
+    gap: var(--spacing-lg);
+  }
+  
+  .section {
+    gap: var(--spacing-md);
+  }
+  
+  .percentageTotal {
+    padding: var(--spacing-md);
+  }
+  
+  .checkboxLabel {
+    padding: var(--spacing-sm);
+    min-height: 52px; /* Even larger touch targets on small screens */
+  }
+  
+  .checkboxHelper {
+    margin-left: 0;
+    margin-top: var(--spacing-xs);
+  }
+
+  /* Full-width form on very small screens */
+  .managementGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .warningSection {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .warningActions {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+
+/* Touch-specific optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .checkboxLabel:hover {
+    /* Remove hover effects on touch devices */
+    border-color: var(--color-border);
+    background-color: var(--color-background);
+  }
+
+  .checkboxLabel:active {
+    /* Add active state for touch feedback */
+    background-color: var(--color-background-secondary);
+    transform: scale(0.98);
+  }
+
+  /* Larger touch targets */
+  .formActions button {
+    min-height: 52px;
+    padding: 0.75rem 1.5rem;
+  }
+}
+
+/* Focus and Accessibility */
+.checkbox:focus-visible + .checkboxText::before {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.checkboxLabel:focus-within {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(var(--color-primary-rgb), 0.1);
+}
+
+/* Animation for percentage total changes */
+.percentageTotal {
+  animation: percentageUpdate 0.3s ease;
+}
+
+@keyframes percentageUpdate {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Loading state */
+.form:has(input:disabled) {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.form:has(input:disabled) .percentageTotal {
+  animation: none;
+}
