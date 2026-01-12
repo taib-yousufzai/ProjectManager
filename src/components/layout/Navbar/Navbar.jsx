@@ -3,6 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../../../hooks/useAuth';
 import NotificationBell from '../../common/NotificationBell/NotificationBell';
 import { Menu, Search, ChevronDown, X } from 'lucide-react';
+import logo from '../../../assets/logo-v2.png';
 import styles from './Navbar.module.css';
 
 const Navbar = ({ onToggleSidebar, isSidebarOpen }) => {
@@ -52,7 +53,7 @@ const Navbar = ({ onToggleSidebar, isSidebarOpen }) => {
           </button>
 
           <div className={styles.logo}>
-            <img src="/src/assets/logo.png" alt="ProjectTracker Logo" className={styles.logoImage} />
+            <img src={logo} alt="ProjectTracker Logo" className={styles.logoImage} />
             <h2>ProjectTracker</h2>
           </div>
         </div>
