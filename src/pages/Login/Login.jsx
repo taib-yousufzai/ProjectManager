@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
 import { Wifi, WifiOff, Loader2, LogIn } from 'lucide-react';
-import logo from '../../assets/logo-v3.png';
 import styles from './Login.module.css';
 
 const Login = () => {

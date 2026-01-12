@@ -6,7 +6,8 @@
 .container {
   display: flex;
   min-height: 100vh;
-  padding-top: 64px; /* Height of fixed navbar */
+  padding-top: 64px;
+  /* Height of fixed navbar */
 }
 
 .main {
@@ -29,14 +30,14 @@
   .container {
     padding-top: 0;
   }
-  
+
   .main {
-    margin-left: 280px; /* Width of sidebar */
+    /* margin-left handled by flex layout with relative sidebar */
     min-height: 100vh;
   }
-  
+
   .main.sidebarOpen {
-    margin-left: 280px;
+    /* No extra margin needed */
   }
 }
 
@@ -45,11 +46,11 @@
   .main {
     margin-left: 0;
   }
-  
+
   .main.sidebarOpen {
     margin-left: 0;
   }
-  
+
   .content {
     padding: var(--spacing-lg);
   }
