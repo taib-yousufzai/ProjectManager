@@ -40,8 +40,11 @@ export class FirestoreService {
   // Create a new document
   async create(data) {
     try {
+      // Remove id from data if it exists to prevent conflicts
+      const { id, ...dataWithoutId } = data;
+
       const docData = {
-        ...data,
+        ...dataWithoutId,
         createdAt: serverTimestamp(),
         updatedAt: serverTimestamp()
       };
@@ -53,6 +56,7 @@ export class FirestoreService {
       });
 
       const docRef = await Promise.race([createPromise, timeoutPromise]);
+      // Always use the Firestore-generated ID
       return { id: docRef.id, ...docData };
     } catch (error) {
       console.error(`Error creating ${this.collectionName}:`, error);

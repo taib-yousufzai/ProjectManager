@@ -12,11 +12,10 @@ const ProjectTable = ({ projects = [], loading = false, onDelete }) => {
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState('');
   const [statusFilter, setStatusFilter] = useState('all');
-  const [sortConfig, setSortConfig] = useState({ key: 'name', direction: 'asc' });
 
-  // Filter and sort projects
-  const filteredAndSortedProjects = useMemo(() => {
-    let filtered = projects.filter(project => {
+  // Filter projects
+  const filteredProjects = useMemo(() => {
+    return projects.filter(project => {
       const matchesSearch = project.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
         project.clientName.toLowerCase().includes(searchTerm.toLowerCase()) ||
         project.description.toLowerCase().includes(searchTerm.toLowerCase());
@@ -25,47 +24,10 @@ const ProjectTable = ({ projects = [], loading = false, onDelete }) => {
 
       return matchesSearch && matchesStatus;
     });
-
-    // Sort projects
-    if (sortConfig.key) {
-      filtered.sort((a, b) => {
-        let aValue = a[sortConfig.key];
-        let bValue = b[sortConfig.key];
-
-        // Handle date sorting
-        if (sortConfig.key === 'startDate' || sortConfig.key === 'endDate') {
-          aValue = new Date(aValue);
-          bValue = new Date(bValue);
-        }
-
-        // Handle string sorting
-        if (typeof aValue === 'string') {
-          aValue = aValue.toLowerCase();
-          bValue = bValue.toLowerCase();
-        }
-
-        if (aValue < bValue) {
-          return sortConfig.direction === 'asc' ? -1 : 1;
-        }
-        if (aValue > bValue) {
-          return sortConfig.direction === 'asc' ? 1 : -1;
-        }
-        return 0;
-      });
-    }
-
-    return filtered;
-  }, [projects, searchTerm, statusFilter, sortConfig]);
-
-  const handleSort = (key) => {
-    setSortConfig(prevConfig => ({
-      key,
-      direction: prevConfig.key === key && prevConfig.direction === 'asc' ? 'desc' : 'asc'
-    }));
-  };
+  }, [projects, searchTerm, statusFilter]);
 
   const handleProjectClick = (projectId) => {
-    navigate(ROUTES.PROJECT_DETAILS.replace(':id', projectId));
+    navigate(`/projects/${projectId}`);
   };
 
   const handleDelete = async (e, projectId, projectName) => {
@@ -88,17 +50,6 @@ const ProjectTable = ({ projects = [], loading = false, onDelete }) => {
     return (
       <span className={`${styles.statusBadge} ${statusClasses[status]}`}>
         {status.replace('-', ' ').toUpperCase()}
-      </span>
-    );
-  };
-
-  const getSortIcon = (columnKey) => {
-    if (sortConfig.key !== columnKey) {
-      return <span className={styles.sortIcon}>↕</span>;
-    }
-    return (
-      <span className={styles.sortIcon}>
-        {sortConfig.direction === 'asc' ? '↑' : '↓'}
       </span>
     );
   };
@@ -169,14 +120,14 @@ const ProjectTable = ({ projects = [], loading = false, onDelete }) => {
           </div>
 
           <div className={styles.resultsCount}>
-            {filteredAndSortedProjects.length} of {projects.length} projects
+            {filteredProjects.length} of {projects.length} projects
           </div>
         </div>
       </Card>
 
-      {/* Projects Table */}
-      <Card>
-        {filteredAndSortedProjects.length === 0 ? (
+      {/* Projects Grid */}
+      {filteredProjects.length === 0 ? (
+        <Card>
           <div className={styles.emptyState}>
             <h3>No projects found</h3>
             <p>
@@ -192,110 +143,85 @@ const ProjectTable = ({ projects = [], loading = false, onDelete }) => {
               Add New Project
             </Button>
           </div>
-        ) : (
-          <div className={styles.tableContainer}>
-            <table className={styles.table}>
-              <thead>
-                <tr>
-                  <th
-                    className={styles.sortableHeader}
-                    onClick={() => handleSort('name')}
-                  >
-                    Project Name {getSortIcon('name')}
-                  </th>
-                  <th
-                    className={styles.sortableHeader}
-                    onClick={() => handleSort('clientName')}
-                  >
-                    Client {getSortIcon('clientName')}
-                  </th>
-                  <th
-                    className={styles.sortableHeader}
-                    onClick={() => handleSort('status')}
-                  >
-                    Status {getSortIcon('status')}
-                  </th>
-                  <th
-                    className={styles.sortableHeader}
-                    onClick={() => handleSort('startDate')}
-                  >
-                    Start Date {getSortIcon('startDate')}
-                  </th>
-                  <th
-                    className={styles.sortableHeader}
-                    onClick={() => handleSort('budget')}
-                  >
-                    Budget {getSortIcon('budget')}
-                  </th>
-                  <th
-                    className={styles.sortableHeader}
-                    onClick={() => handleSort('totalPaid')}
-                  >
-                    Paid {getSortIcon('totalPaid')}
-                  </th>
-                  <th>Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                {filteredAndSortedProjects.map((project) => (
-                  <tr
-                    key={project.id}
-                    className={styles.tableRow}
-                    onClick={() => handleProjectClick(project.id)}
-                  >
-                    <td className={styles.projectName}>
-                      <div>
-                        <strong>{project.name}</strong>
-                        <div className={styles.projectDescription}>
-                          {project.description}
-                        </div>
-                      </div>
-                    </td>
-                    <td>{project.clientName}</td>
-                    <td>{getStatusBadge(project.status)}</td>
-                    <td>{formatDate(project.startDate)}</td>
-                    <td>{formatCurrency(project.budget)}</td>
-                    <td>
-                      <div className={styles.paymentInfo}>
-                        {formatCurrency(project.totalPaid)}
-                        <div className={styles.paymentProgress}>
-                          <div
-                            className={styles.progressBar}
-                            style={{
-                              width: `${Math.min((project.totalPaid / project.budget) * 100, 100)}%`
-                            }}
-                          />
-                        </div>
-                      </div>
-                    </td>
-                    <td>
-                      <div className={styles.actions}>
-                        <Button
-                          variant="secondary"
-                          size="small"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            handleProjectClick(project.id);
-                          }}
-                        >
-                          View
-                        </Button>
-                        <Button
-                          variant="danger"
-                          size="small"
-                          onClick={(e) => handleDelete(e, project.id, project.name)}
-                        >
-                          Delete
-                        </Button>
-                      </div>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        )}
-      </Card>
+        </Card>
+      ) : (
+        <div className={styles.projectGrid}>
+          {filteredProjects.map((project) => (
+            <Card
+              key={project.id}
+              className={styles.projectCard}
+            >
+              <div
+                className={styles.cardHeader}
+                onClick={() => handleProjectClick(project.id)}
+                style={{ cursor: 'pointer' }}
+              >
+                <div className={styles.cardTitle}>
+                  <h3>{project.name}</h3>
+                  <p className={styles.clientName}>{project.clientName}</p>
+                </div>
+                {getStatusBadge(project.status)}
+              </div>
+
+              <p className={styles.description}>{project.description}</p>
+
+              <div className={styles.cardDetails}>
+                <div className={styles.detailItem}>
+                  <span className={styles.detailLabel}>Start Date:</span>
+                  <span className={styles.detailValue}>{formatDate(project.startDate)}</span>
+                </div>
+                <div className={styles.detailItem}>
+                  <span className={styles.detailLabel}>Budget:</span>
+                  <span className={styles.detailValue}>{formatCurrency(project.budget)}</span>
+                </div>
+              </div>
+
+              <div className={styles.progressSection}>
+                <div className={styles.progressHeader}>
+                  <span className={styles.progressLabel}>Payment Progress</span>
+                  <span className={styles.progressValue}>
+                    {formatCurrency(project.totalPaid)} / {formatCurrency(project.budget)}
+                  </span>
+                </div>
+                <div className={styles.progressBarContainer}>
+                  <div
+                    className={styles.progressBar}
+                    style={{
+                      width: `${Math.min((project.totalPaid / project.budget) * 100, 100)}%`
+                    }}
+                  />
+                </div>
+                <span className={styles.progressPercentage}>
+                  {Math.round((project.totalPaid / project.budget) * 100)}% Paid
+                </span>
+              </div>
+
+              <div className={styles.cardActions}>
+                <Button
+                  variant="secondary"
+                  size="small"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleProjectClick(project.id);
+                  }}
+                >
+                  View Details
+                </Button>
+                <Button
+                  variant="danger"
+                  size="small"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleDelete(e, project.id, project.name);
+                  }}
+                >
+                  Delete
+                </Button>
+              </div>
+            </Card>
+          ))}
+        </div>
+      )}
     </div>
   );
 };

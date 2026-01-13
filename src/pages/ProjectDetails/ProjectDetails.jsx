@@ -12,21 +12,35 @@ const ProjectDetails = () => {
   const navigate = useNavigate();
   const [project, setProject] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
     const loadProjectData = async () => {
       setLoading(true);
+      setError(null);
       try {
         const projectData = await projectService.getProject(id);
         if (!projectData) {
-          navigate(ROUTES.PROJECTS || '/projects');
+          setError({ type: 'not_found' });
           return;
         }
         setProject(projectData);
-      } catch (error) {
-        console.error('Error loading project:', error);
-        // navigate('/projects'); // Optional: redirect on error
+      } catch (err) {
+        console.error('Error loading project:', err);
+
+        // Detect network/blocking errors
+        const errorMessage = err.message?.toLowerCase() || '';
+        const isNetworkError =
+          errorMessage.includes('network') ||
+          errorMessage.includes('failed to fetch') ||
+          errorMessage.includes('blocked') ||
+          err.code === 'unavailable';
+
+        setError({
+          type: isNetworkError ? 'network' : 'unknown',
+          message: err.message
+        });
       } finally {
         setLoading(false);
       }
@@ -35,7 +49,7 @@ const ProjectDetails = () => {
     if (id) {
       loadProjectData();
     }
-  }, [id, navigate]);
+  }, [id]);
 
   const handleDelete = async () => {
     if (!window.confirm('Are you sure you want to delete this project? This action cannot be undone.')) {
@@ -59,6 +73,43 @@ const ProjectDetails = () => {
       <div className={styles.projectDetailsPage}>
         <div className={styles.loading}>
           Loading project details...
+        </div>
+      </div>
+    );
+  }
+
+  if (!project && error) {
+    return (
+      <div className={styles.projectDetailsPage}>
+        <div className={styles.notFound}>
+          {error.type === 'network' ? (
+            <>
+              <h2>⚠️ Connection Blocked</h2>
+              <p>Unable to load project data. This is usually caused by:</p>
+              <ul style={{ textAlign: 'left', maxWidth: '500px', margin: '1rem auto' }}>
+                <li>Ad-blocker or privacy extension blocking Firebase</li>
+                <li>Network connectivity issues</li>
+                <li>Firewall restrictions</li>
+              </ul>
+              <p><strong>Try:</strong> Disabling your ad-blocker for this site or checking your internet connection.</p>
+              <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', marginTop: '1.5rem' }}>
+                <Button variant="primary" onClick={() => window.location.reload()}>
+                  Retry
+                </Button>
+                <Button variant="secondary" onClick={() => navigate('/projects')}>
+                  Back to Projects
+                </Button>
+              </div>
+            </>
+          ) : (
+            <>
+              <h2>Project Not Found</h2>
+              <p>The project you're looking for doesn't exist or you don't have access to it.</p>
+              <Button variant="primary" onClick={() => navigate('/projects')}>
+                Back to Projects
+              </Button>
+            </>
+          )}
         </div>
       </div>
     );
