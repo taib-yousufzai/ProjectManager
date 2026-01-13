@@ -4,9 +4,9 @@ import Card from '../../common/Card/Card';
 import { formatCurrency } from '../../../utils/helpers';
 import styles from './RevenuePieChart.module.css';
 
-const RevenuePieChart = ({ 
-  revenueRule, 
-  amount, 
+const RevenuePieChart = ({
+  revenueRule,
+  amount,
   currency = 'USD',
   showChart = true,
   showBreakdown = true,
@@ -70,7 +70,7 @@ const RevenuePieChart = ({
       return (
         <div className={styles.tooltip}>
           <div className={styles.tooltipHeader}>
-            <div 
+            <div
               className={styles.tooltipColor}
               style={{ backgroundColor: data.color }}
             />
@@ -133,8 +133,8 @@ const RevenuePieChart = ({
     <div className={`${styles.revenuePieChart} ${styles[size]}`}>
       {showChart && (
         <Card title="Revenue Distribution" className={styles.chartCard}>
-          <div className={styles.chartContainer}>
-            <ResponsiveContainer width="100%" height={dimensions.height}>
+          <div className={styles.chartContainer} style={{ height: dimensions.height, minHeight: dimensions.height }}>
+            <ResponsiveContainer width="100%" height="100%">
               <PieChart>
                 <Pie
                   data={chartData}
@@ -148,8 +148,8 @@ const RevenuePieChart = ({
                   onMouseLeave={onPieLeave}
                 >
                   {chartData.map((entry, index) => (
-                    <Cell 
-                      key={`cell-${index}`} 
+                    <Cell
+                      key={`cell-${index}`}
                       fill={entry.color}
                       stroke={activeIndex === index ? '#fff' : 'none'}
                       strokeWidth={activeIndex === index ? 2 : 0}
@@ -161,8 +161,8 @@ const RevenuePieChart = ({
                   ))}
                 </Pie>
                 <Tooltip content={<CustomTooltip />} />
-                <Legend 
-                  verticalAlign="bottom" 
+                <Legend
+                  verticalAlign="bottom"
                   height={36}
                   formatter={(value, entry) => (
                     <span style={{ color: entry.color }}>
@@ -188,7 +188,7 @@ const RevenuePieChart = ({
         <Card title="Breakdown Details" className={styles.breakdownCard}>
           <div className={styles.breakdownList}>
             {chartData.map((item, index) => (
-              <div 
+              <div
                 key={item.party}
                 className={`${styles.breakdownItem} ${activeIndex === index ? styles.active : ''}`}
                 onMouseEnter={() => setActiveIndex(index)}
@@ -196,7 +196,7 @@ const RevenuePieChart = ({
               >
                 <div className={styles.breakdownHeader}>
                   <div className={styles.breakdownIndicator}>
-                    <div 
+                    <div
                       className={styles.colorDot}
                       style={{ backgroundColor: item.color }}
                     />
